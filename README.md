@@ -5,6 +5,7 @@ This guide explains how to install, configure, and make use of the EMC ViPR
 Cinder Driver. The driver works with following releases of Openstack.
 1. Havana
 2. Icehouse
+3. Juno
 
 
 2. Overview
