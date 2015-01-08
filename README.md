@@ -71,7 +71,7 @@ Before you begin
 mkdir cli/temp
 cd cli/temp
 ```
-3. Either point your browser to https://<FQDN>:4443/cli or run the wget command
+3. Either point your browser to "https://<FQDN>:4443/cli" or run the wget command
    to retrieve the ViPR CLI installation bundle: 
 ```
 wget https://<FQDN>:4443/cli  --no-check-certificate  --content-disposition
