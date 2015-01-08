@@ -76,14 +76,13 @@ cd cli/temp
 ```
 wget https://<FQDN>:4443/cli  --no-check-certificate  --content-disposition
 ```
-
    For sites with self-signed certificates or where issues are detected, optionally use
    http://<FQDN>:9998/cli only when you are inside a trusted
    network. The CLI installation bundle is downloaded to the current directory. 
    The wget command for the same is below.
-
+```
 wget  http://<FQDN>:9998/cli  --content-disposition
-   
+```   
 4. Use tar to extract the CLI and its support files from the installation bundle.
 ```
 tar -xvzf <cli_install_bundle>
