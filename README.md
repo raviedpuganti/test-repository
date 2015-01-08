@@ -74,33 +74,33 @@ Before you begin
 
 3. Either point your browser to "https://<FQDN>:4443/cli" or run the wget command
    to retrieve the ViPR CLI installation bundle: 
-```
-wget https://<FQDN>:4443/cli  --no-check-certificate  --content-disposition
-```
+  ```
+  wget https://<FQDN>:4443/cli  --no-check-certificate  --content-disposition
+  ```
    For sites with self-signed certificates or where issues are detected, optionally use
    http://<FQDN>:9998/cli only when you are inside a trusted
    network. The CLI installation bundle is downloaded to the current directory. 
    The wget command for the same is below.
-```
-wget  http://<FQDN>:9998/cli  --content-disposition
-```   
+  ```
+  wget  http://<FQDN>:9998/cli  --content-disposition
+  ```   
 4. Use tar to extract the CLI and its support files from the installation bundle.
-```
-tar -xvzf <cli_install_bundle>
-```
+  ```
+  tar -xvzf <cli_install_bundle>
+  ```
 5. Run the CLI installation program.
-```
-python setup.py install
-```
+  ```
+  python setup.py install
+  ```
 Install the ViPR CLI wherever python dist-packages or site-package folder is located at.
 
 For Example:
 
-```
-/usr/local/lib/python2.7/dist-packages
-or
-/usr/lib/python2.6/site-packages
-```
+  ```
+  /usr/local/lib/python2.7/dist-packages
+  or
+  /usr/lib/python2.6/site-packages
+  ```
 
 6. Open viprcli.profile file located at the above installation directory and edit value of
    VIPR_CLI_INSTALL_DIR. Set the value of it to a path for which the user running cinder has
