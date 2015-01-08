@@ -1,4 +1,3 @@
-
 1. Introduction
 ============
 
@@ -73,15 +72,17 @@ mkdir cli/temp
 cd cli/temp
 ```
 3. Either point your browser to https://<FQDN>:4443/cli or run the wget command
-   to retrieve the ViPR CLI installation bundle:
+   to retrieve the ViPR CLI installation bundle: 
 ```
-wget https://<FQDN>:4443/cli
+wget https://<FQDN>:4443/cli  --no-check-certificate  --content-disposition
 ```
 
    For sites with self-signed certificates or where issues are detected, optionally use
-   http://<ViPR_virtual_IP>:9998/cli only when you are inside a trusted
-   network. <ViPR_virtual_IP> is the ViPR public virtual IP address, also known as the
-   network vip. The CLI installation bundle is downloaded to the current directory.
+   http://<FQDN>:9998/cli only when you are inside a trusted
+   network. The CLI installation bundle is downloaded to the current directory. 
+   The wget command for the same is below.
+
+wget  http://<FQDN>:9998/cli  --content-disposition
    
 4. Use tar to extract the CLI and its support files from the installation bundle.
 ```
@@ -143,7 +144,6 @@ The EMC ViPR environment must meet specific configuration requirements to suppor
 * The following configuration must have been done by a ViPR System Administrator, using the ViPR UI, ViPR API, or ViPR CLI:
    - ViPR virtual assets, such as virtual arrays and virtual pools, must have been created.
    - Each virtual array designated for use in the OpenStack iSCSI driver must have an IP network created with appropriate IP storage ports.
-   Note: Multi-volume consistency groups are not supported by the ViPR Cinder Driver. Please ensure that the Multi-volume consistency option is not enabled on the Virtual Pool with ViPR.
 * Each instance of the ViPR Cinder Driver can be used to manage only one virtual array and one virtual pool within ViPR. 
 * The ViPR Cinder Driver requires one Virtual Storage Pool, with the following requirements (non-specified values can be set as desired):
    - Storage Type: Block
@@ -170,11 +170,11 @@ vipr_hostname=<ViPR-Host-Name>
 vipr_port=4443
 vipr_username=<username>
 vipr_password=<password>
-vipr_cli_path=<CLI-Install-Path>
 vipr_tenant=<Tenant> 
 vipr_project=<ViPR-Project-Name>
 vipr_varray=<ViPR-Virtual-Array-Name>
 vipr_cookiedir=/tmp
+vipr_storage_vmax= True or False
 
 Below fields are needed only for ScaleIO backend.
 
@@ -199,6 +199,7 @@ Note 3: To utilize the ScaleIO Driver, replace the volume_driver line above with
 volume_driver = cinder.volume.drivers.emc.vipr.scaleio.EMCViPRScaleIODriver
 
 ```
+Note 4: set vipr_storage_vmax to True, if the ViPR vpool has VMAX or VPLEX(with VMAX as backend) as the backing storage.
 
 * Modify the rpc_response_timeout value in /etc/cinder/cinder.conf to at least 5 minutes. if this value does not already exist within the cinder.conf file, please add it
 
@@ -344,7 +345,7 @@ scaleio=nova.virt.libvirt.scaleiodriver.LibvirtScaleIOVolumeDriver
 9. Consistency Group specific configuration 
 ====================================
 * Use a text editor to edit the file /etc/cinder/policy.json and change the values
-  of the below fields as specified. Upoin editing the file, restart the c-api service.
+  of the below fields as specified. Upon editing the file, restart the c-api service.
 
 ```
     "consistencygroup:create" : "",
