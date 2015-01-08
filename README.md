@@ -92,9 +92,9 @@ Before you begin
   ```
   python setup.py install
   ```
-Install the ViPR CLI wherever python dist-packages or site-package folder is located at.
+  Install the ViPR CLI wherever python dist-packages or site-package folder is located at.
 
-For Example:
+  For Example:
 
   ```
   /usr/local/lib/python2.7/dist-packages
