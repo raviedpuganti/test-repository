@@ -110,31 +110,31 @@ Before you begin
    Edit the file viprcli.profile using the vi command and set the VIPR_HOSTNAME to
    the ViPR public virtual IP address and VIPR_PORT=4443 environment variable and
    save the file.
-```
-# vi viprcli.profile
-#!/usr/bin/sh
-# Installation directory of ViPR CLI
-ViPR_CLI_INSTALL_DIR=/home/user1
-# Add the ViPR install directory to the PATH and PYTHONPATH env 
-variables
-if [ -n $ViPR_CLI_INSTALL_DIR ]
-then
-export PATH=$ViPR_CLI_INSTALL_DIR/bin:$PATH
-export PYTHONPATH=$ViPR_CLI_INSTALL_DIR/bin:$PYTHONPATH
-fi
-# USER CONFIGURABLE ViPR VARIABLES
-# ViPR Host fully qualified domain name
-ViPR_HOSTNAME=example.mydomain.com
-# ViPR Port Number
-ViPR_PORT=4443
+  ```
+  # vi viprcli.profile
+  #!/usr/bin/sh
+  # Installation directory of ViPR CLI
+  ViPR_CLI_INSTALL_DIR=/home/user1
+  # Add the ViPR install directory to the PATH and PYTHONPATH env 
+  variables
+  if [ -n $ViPR_CLI_INSTALL_DIR ]
+  then
+  export PATH=$ViPR_CLI_INSTALL_DIR/bin:$PATH
+  export PYTHONPATH=$ViPR_CLI_INSTALL_DIR/bin:$PYTHONPATH
+  fi
+  # USER CONFIGURABLE ViPR VARIABLES
+  # ViPR Host fully qualified domain name
+  ViPR_HOSTNAME=example.mydomain.com
+  # ViPR Port Number
+  ViPR_PORT=4443
 
-```
+  ```
 8. From the command prompt open python prompt by typing python. Below command should be 
    successful to indicate that the process has been correctly performed.
 
-```
-import viprcli
-```
+  ```
+  import viprcli
+  ```
 
 5.2 Configure EMC ViPR
 ----------------------
