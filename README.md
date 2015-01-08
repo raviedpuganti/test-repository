@@ -115,8 +115,7 @@ Before you begin
   #!/usr/bin/sh
   # Installation directory of ViPR CLI
   ViPR_CLI_INSTALL_DIR=/home/user1
-  # Add the ViPR install directory to the PATH and PYTHONPATH env 
-  variables
+  # Add the ViPR install directory to the PATH and PYTHONPATH env variables
   if [ -n $ViPR_CLI_INSTALL_DIR ]
   then
   export PATH=$ViPR_CLI_INSTALL_DIR/bin:$PATH
